@@ -1,0 +1,10 @@
+.main_container {
+    margin-top: 100px;
+    direction: rtl;
+    margin-right: 300px;
+    margin-left: 100px;
+}
+
+#employeeForm {
+    direction: rtl;
+}
