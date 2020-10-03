@@ -5,6 +5,7 @@
 
     $id=$_POST['inputid'];
     $name=$_POST['inputname'];
+    $statusEmpl=$_POST['inputStatusEmpl'];
     $birthDate=$_POST['inputBirthDate'];
     $startDate=$_POST['inputStartDate'];
     $Address=$_POST['inputAddress'];
@@ -15,11 +16,9 @@
     $bankNum=$_POST['inputBankNum'];
     $bankAccount=$_POST['inputBankAccount'];
     
-
-
                
-            $updateQuery = "UPDATE `employee` SET  `fullName`= '$name', `birthDate`='$birthDate', `startDate`='$startDate',  `address`='$Address', 
-             `phone`='$phone', `phone2`= '$phone2', `email`='$email', `bankName`='$bankName', `bankNum`='$bankNum', `bankAccount` = '$bankAccount'  WHERE 'id' LIKE '$id'";
+            $updateQuery = "UPDATE `employee` SET  `fullName`= '$name', `statusEmpl`= '$statusEmpl', `birthDate`='$birthDate', `startDate`='$startDate',  `address`='$Address', 
+             `phone`='$phone', `phone2`= '$phone2', `email`='$email', `bankName`='$bankName', `bankNum`='$bankNum', `bankAccount` = '$bankAccount'  WHERE 'employee.id' = $id ";
            
             $result = $conn->query($updateQuery);
             if(!$result){

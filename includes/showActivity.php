@@ -42,6 +42,7 @@
     <div id="common"></div>
 
     <div class="main_container">
+
         <h2>הצגת פעילויות</h2>
         <table class="table">
             <thead class="thead-light">
@@ -54,6 +55,7 @@
                     <th scope="col">תאריך סיום</th>
                     <th scope="col">הערות</th>
                     <th scope="col">מפעיל</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -63,13 +65,16 @@
                      echo '<h4 class="alert-danger">תקלה בהתחברות למסד הנתונים: '. $conn->connect_error .'</h4>';
                      } 
                      else { 
+
                         $sql = "SELECT activities.id AS id, name, cost , activities.startdate AS start, finishdate, notes , employee.fullName as ef FROM activities INNER JOIN employee on employeid= employee.id ";
+
                         $result = $conn->query($sql);
                 if ($result->num_rows > 0) {  
                     $linenum =1;
                     while($row = $result->fetch_assoc()) {
                        
                  echo ' <tr>
+
                 <th scope="row">'.$linenum.'</th>
                 <td>'.$row["id"].'</td>
                 <td>'.$row["name"].'</td>
@@ -78,6 +83,7 @@
                 <td>'.$row["finishdate"].'</td>
                 <td>'.$row["notes"].'</td>
                 <td>'.$row["ef"].'</td>
+
 
             </tr>';
             $linenum++;

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>דיווח שעות</title>
+     
+     <!-- Bootstrap CSS -->
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="../style/timesheet.css">
+    <link rel="stylesheet" href="../style/common.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="../javascript/timesheet.js"></script>
+    
+    <script>
+      window.console = window.console || function(t) {};
+    </script>
+
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+      
+    </script>
+
+    <script>
+      $(document).ready(function() {
+          $(function() {
+              $("#common").load("Common.html");
+          });
+      });
+  </script>
+  <script>
+      $(document).ready(function() {
+          $(".hamburger").click(function() {
+              $(".wrapper").toggleClass("collapse");
+          });
+      });
+  </script>
+
+</head>    
+
+<body>
+  
+  <div id="common"></div>
+
+    <div class="container text-center">
+      <header>
+  <!--       <h1>NTB</h1> -->
+        <h3>דיווח שעות עבודה</h3>
+      </header>
+      <main class= "timesheet">
+        <form>
+          <div class="form-group row">
+            <div class="col-2"></div>
+          <label class="sr-only" for="name">שם העובד</label>
+          <input type="text" class="form-control mb-2 mr-sm-2 col-4" id="name" placeholder="שם העובד">
+  
+          <label class="sr-only" for="datePicker">תאריך</label>
+          <input type="text" class="form-control mb-2 mr-sm-2 col-4" id="datePicker" placeholder="בחר שבוע עבודה">
+          <div class="col-2"></div>        
+          </div>
+        </form>
+        <table class="table table-dark table-striped table-hover">
+          <thead>
+            <tr>
+                
+              <th>יום</th>
+              <th>תאריך</th>
+              <th>שעת התחלה</th>
+              <th>שעת סיום </th>
+              <th>הפסקה</th>
+              
+            </tr>
+          </thead>
+          <tbody id="tBody">
+          </tbody>
+        </table>
+        <div class="row bottom d-none">
+          <div class="col">
+            <button type="button" id="submit" class="btn btn-success"  herf=>שמור</button>
+          </div>
+          <div class="col">
+            <h2 id="hoursWorkedText" class="text-right">סך השעות בחודש זה <span id="totalHours">0</span></h2>
+          </div>
+        </div>
+      </main>
+   
+    </div>
+  </body>
+
+  
+</html>
+

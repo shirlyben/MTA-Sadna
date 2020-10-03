@@ -79,7 +79,7 @@
                 else { 
                    $inputsearch=$_POST["inputsearch"]; 
                       
-                   $sql = "SELECT id AS inputid, fullname AS inputname, birthDate AS inputBirthDate , startDate AS inputStartDate, address AS inputAddress, gender AS inputGender, phone AS inputphone,  phone2 AS inputphone2, email AS inputEmail, bankName AS inputBankName, bankNum AS inputBankNum, bankAccount AS inputBankAccount
+                   $sql = "SELECT id AS inputid, fullname AS inputname, statusEmpl AS inputStatusEmpl , birthDate AS inputBirthDate , startDate AS inputStartDate, address AS inputAddress, gender AS inputGender, phone AS inputphone,  phone2 AS inputphone2, email AS inputEmail, bankName AS inputBankName, bankNum AS inputBankNum, bankAccount AS inputBankAccount
                    FROM employee WHERE id LIKE '$inputsearch'";
                    $result = $conn->query($sql);
                    if ($result->num_rows > 0) {  
@@ -95,10 +95,19 @@
                                 <label for="name">תעודת זהות</label>
                                 <input type="number" class="form-control" name="inputid" id="inputid" value="'.$row["inputid"].'" readonly>
                             </div>
+                            
                             <div class="form-group col">
                                 <label for="name">שם מלא</label>
                                 <input type="text" class="form-control" name="inputname"  id="inputname" value="'.$row["inputname"].'">
                             </div>
+
+                            <div class="form-group col">
+                            <label for="name">סטטוס</label>
+                            <select class="form-control" name="inputStatusEmpl"  id="inputStatusEmpl" value="'.$row["inputStatusEmpl"].'">
+                            <option disabled value=""> ---בחר---</option>
+                            <option value= "manager"> מנהל </option>
+                            <option value= "general"> כללי </option>
+                            </select> </div>
 
                             <div class="form-group col">
                                 <label for="name">תאריך לידה</label>
@@ -116,16 +125,18 @@
                             </div>
                             
                             <div>
-                                <label for="Name">מין:</label> <br>    
-                                <input type="radio" id="male" name="inputGender" id="inputGender" value="אישה" value="'.$row["inputGender"].'">
+                                <label for="Name">מין:</label> <br> 
+                                <label for="male">גבר</label>   
+                                <input type="radio" id="male" name="inputGender" id="inputGender" value="גבר" value="'.$row["inputGender"].'">
                         
-                                <label for="male">גבר</label>
-                                <input type="radio" id="female" name="inputGender" id="inputGender" value="גבר" value="'.$row["inputGender"].'">
-                            
                                 <label for="female">אישה</label>
-                                <input type="radio" id="other" name="inputGender" id="inputGender" value="אחר" value="'.$row["inputGender"].'">
+                                <input type="radio" id="female" name="inputGender" id="inputGender" value="אישה" value="'.$row["inputGender"].'">
                             
                                 <label for="other">אחר</label>
+                                <input type="radio" id="other" name="inputGender" id="inputGender" value="אחר" value="'.$row["inputGender"].'">
+                            
+                                
+                                
                             </div>
 
                         </div>
@@ -155,17 +166,28 @@
                                 <label for="bankName">שם בנק</label>
                                 <input type="text" class="form-control"  name="inputBankName" id="inputBankName" value="'.$row["inputBankName"].'">
                             </div>
+
                             <div class="form-group form-check col">
                                 <label for="bankNum">מספר בנק</label>
                                 <input type="number" class="form-control" name="inputBankNum" id="inputBankNum"  value="'.$row["inputBankNum"].'">
-                            
+                          
                             </div>
+
+                                                        
                             <div class="form-group form-check col">
                                 <label for="bankAccount">מספר חשבון</label>
-                                <input type="number" class="form-control" name="inputBankAccount"  id="inputBankAccount"value="'.$row["inputBankAccount"].'" >
-                        </div>
+                                <input type="number" class="form-control" name="inputBankAccount" id="inputBankAccount"value="'.$row["inputBankAccount"].'" >
+                            </div>
 
-                                        <button type="submit" class="btn btn-primary">שמירה</button> ';
+                            <div class="form-group form-check col">
+                                <label for="bankAccount">קובץ חוזה עבודה </label>
+                                <input type="file" class="form-control"  name="filename2">
+                            </div>
+
+                            <div class="container">
+                                 <div class="centerButton">
+                             <button type="submit" class="btn btn-primary"> שמירה</button>
+                             </div></div> ';
                             }
                                             }
                         else

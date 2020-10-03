@@ -8,3 +8,13 @@
 #employeeForm {
     direction: rtl;
 }
+
+.table .thead-light th {
+    clear :all;
+}
+
+.table .thead-light th
+{
+    background-color:#78c5e77a !important;
+ 
+}

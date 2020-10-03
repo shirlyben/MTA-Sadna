@@ -59,11 +59,13 @@
 
 
         <nav class="navbar navbar-light col-sm-10">
+
                 <form class="form-inline" method="POST" action="showsearchActivity.php">
                     <input class="form-control" type="search" name="inputsearch" placeholder="הזן קוד פעילות" aria-label="Search">
                     <button type="submit" class="btn btn-primary">חפש</button>
                 </form>
             </nav>
+
      
 
         <div id="formEmpl" >
@@ -79,8 +81,10 @@
                 else { 
                    $inputsearch=$_POST["inputsearch"]; 
                       
+
                    $sql = "SELECT activities.id AS inputId, name AS inputName, cost AS inputContent , activities.startdate AS inputLength, finishdate AS inputStatus , notes AS inputNotes, employee.fullName as ef 
                    FROM activities INNER JOIN employee on employeid= employee.id WHERE activities.id  LIKE '$inputsearch'";
+
                    $result = $conn->query($sql);
                    if ($result->num_rows > 0) {  
                    while($row = $result->fetch_assoc()) {
@@ -100,6 +104,7 @@
                                 <label for="name">שם הפעילות</label>
                                 <input type="text" class="form-control" name="inputName"  id="inputname" value="'.$row["inputName"].'">
                             </div>
+
 
                             </div>
 
@@ -144,6 +149,7 @@
                         <button type="submit" class="btn btn-primary">שמירה</button> 
                         </div>
                         </div>';
+
                             }
                                             }
                         else
