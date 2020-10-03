@@ -5,10 +5,13 @@
 
     $id=$_POST['inputId'];
     $name=$_POST['inputName'];
-    $content=$_POST['inputContent'];
-    $length=$_POST['inputLength'];
-    $status=$_POST['inputStatus'];
+
+    $content=$_POST['inputcost'];
+    $length=$_POST['inputstartdate'];
+    $status=$_POST['inputfindate'];
     $notes=$_POST['inputNotes'];
+    $empname=$_POST['empname'];
+
                
     function console_log($output, $with_script_tags = true) {
         $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
@@ -19,7 +22,9 @@
         echo $js_code;
     }
 
-    $updateQuery = "UPDATE `activities` SET  `name`= '$name', `content`='$content', `length`=$length,  `status`='$status', 
+  
+    $updateQuery = "UPDATE `activities` SET  `name`= '$name', `cost`='$content', `startdate`='$length',  `finishdate`= '$status', 
+
         `notes`='$notes' WHERE id = $id";
     console_log($updateQuery);
     $result = $conn->query($updateQuery);
@@ -43,7 +48,9 @@
 
 <body>
 <script type="text/javascript">
-   window.location.href = "Memployee.html"
+
+   window.location.href = "MActivity.html"
+
 </script>
 
 </body>

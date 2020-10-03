@@ -59,11 +59,13 @@
 
 
         <nav class="navbar navbar-light col-sm-10">
-            <form class="form-inline"  method="POST" action="showsearchActivity.php">
-                <input class="form-control" type="search" name="inputsearch" placeholder="הזן קוד פעילות המיועדת לעדכון" aria-label="Search">
-                <button class="btn btn-outline-primary" type="button" onclick="">חפש</button>
-            </form>
-        </nav>
+
+                <form class="form-inline" method="POST" action="showsearchActivity.php">
+                    <input class="form-control" type="search" name="inputsearch" placeholder="הזן קוד פעילות" aria-label="Search">
+                    <button type="submit" class="btn btn-primary">חפש</button>
+                </form>
+            </nav>
+
      
 
         <div id="formEmpl" >
@@ -79,8 +81,10 @@
                 else { 
                    $inputsearch=$_POST["inputsearch"]; 
                       
-                   $sql = "SELECT id AS inputId, name AS inputName, content AS inputContent , length AS inputLength, status AS inputStatus, notes AS inputNotes
-                   FROM activities WHERE id LIKE '$inputsearch'";
+
+                   $sql = "SELECT activities.id AS inputId, name AS inputName, cost AS inputContent , activities.startdate AS inputLength, finishdate AS inputStatus , notes AS inputNotes, employee.fullName as ef 
+                   FROM activities INNER JOIN employee on employeid= employee.id WHERE activities.id  LIKE '$inputsearch'";
+
                    $result = $conn->query($sql);
                    if ($result->num_rows > 0) {  
                    while($row = $result->fetch_assoc()) {
@@ -101,29 +105,51 @@
                                 <input type="text" class="form-control" name="inputName"  id="inputname" value="'.$row["inputName"].'">
                             </div>
 
+
+                            </div>
+
+                            <div class="form-row">
+
+
                             <div class="form-group col">
-                                <label for="content">תוכן</label>
-                                <input type="text" class="form-control" name="inputContent"  id="inputContent" value="'.$row["inputContent"].'">
+                                <label for="content">עלות </label>
+                                <input type="text" class="form-control" name="inputcost"  id="inputContent" value="'.$row["inputContent"].'">
                             </div>
 
                             <div class="form-group col">
-                                <label for="inputLength">אורך (שעות)</label>
-                                <input type="number" class="form-control"  name="inputLength" id="inputLength" value="'.$row["inputLength"].'" >
+                                <label for="inputLength">תאריך התחלה</label>
+                                <input type="date" class="form-control"  name="inputstartdate" id="inputLength" value="'.$row["inputLength"].'" >
                             </div>
 
                             <div class="form-group col">
-                                <label for="inputStatus">סטאטוס</label>
-                                <input type="text" class="form-control"  name="inputStatus" id="inputStatus" value="'.$row["inputStatus"].'">
+                                <label for="inputStatus">תאריך סיום</label>
+                                <input type="date" class="form-control"  name="inputfindate" id="inputStatus" value="'.$row["inputStatus"].'">
+                            </div>
                             </div>
                             
-                            <div class="form-group col">
-                                <label for="inputNotes">הערות</label>
-                                <input type="text" class="form-control" name="inputNotes" id="inputNotes" value="'.$row["inputNotes"].'">
-                            </div>
+                            <div class="form-row">
+
+
+                        
+                                    <div class="form-group col">
+                                    <label for="inputNotes">הערות</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="inputNotes" rows="3" >'.$row["inputNotes"].'</textarea>
+                                </div>
+      
                             
                         </div>
+                        <div class="form-row">
+                        <div class="form-group col">
+                        <label for="inputemp">מפעיל הפעילות-</label>
+                        <input type="text" class="form-control" name="empname" id="empname" value="'.$row["ef"].'" readonly>
+                       </div>
+                        </div>
                         
-                        <button type="submit" class="btn btn-primary">שמירה</button> ';
+                        
+                        <button type="submit" class="btn btn-primary">שמירה</button> 
+                        </div>
+                        </div>';
+
                             }
                                             }
                         else

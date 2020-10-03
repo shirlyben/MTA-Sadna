@@ -5,11 +5,13 @@
 
     $id=$_POST['inputid'];
     $name=$_POST['inputname'];
+
     $statusEmpl=$_POST['inputStatusEmpl'];
     $birthDate=$_POST['inputBirthDate'];
     $startDate=$_POST['inputStartDate'];
     $Address=$_POST['inputAddress'];
     $gender=$_POST['inputGender'];
+
     $phone=$_POST['inputphone'];
     $phone2=$_POST['inputphone2'];
     $email=$_POST['inputEmail'];
@@ -26,8 +28,10 @@
         }
         else {
            
+
             $updateQuery = "INSERT INTO `employee` (`id`, `fullName`,`statusEmpl` , `birthDate`, `startDate`, `address`, `gender`, `phone`, `phone2`, `email`, `bankName`, `bankNum`, `bankAccount`, `register_date`)
             VALUES ('$id', '$name', '$statusEmpl', '$birthDate', '$startDate',  '$Address','$gender', '$phone','$phone2', '$email', '$bankName', '$bankNum',  '$bankAccount', '' ); ";
+
             $result = $conn->query($updateQuery);
             if(!$result){
                 echo "<script type='text/javascript'> alert('אירעה שגיאה בעדכון הפרטים'); </script>";

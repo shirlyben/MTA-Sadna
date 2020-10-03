@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+
+    <script type="text/javascript">
+        function selectAll() {
+            for (var i = 0; i < document.getElementById("cars").options.length; i++) {
+                document.getElementById("cars").options[i].selected = true;
+            }
+            return true;
+        }
+    </script>
+    <form action="test.php" onsubmit="return selectAll()" method="post">
+
+        <select id="cars" name="cars[]" multiple="multiple" size="4">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+
+
+        <input type="submit" name="submit" value="That's My Car" />
+    </form>
+</body>
+
+</html>

@@ -42,16 +42,20 @@
     <div id="common"></div>
 
     <div class="main_container">
-        <h2>הצגת עובדים</h2>
+
+        <h2>הצגת פעילויות</h2>
         <table class="table">
             <thead class="thead-light">
                 <tr>
+                    <th scope="col">#</th>
                     <th scope="col">קוד</th>
                     <th scope="col">שם</th>
-                    <th scope="col">תוכן</th>
-                    <th scope="col">אורך</th>
-                    <th scope="col">סטאטוס</th>
+                    <th scope="col">עלות</th>
+                    <th scope="col">תאריך התחלה</th>
+                    <th scope="col">תאריך סיום</th>
                     <th scope="col">הערות</th>
+                    <th scope="col">מפעיל</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -61,22 +65,26 @@
                      echo '<h4 class="alert-danger">תקלה בהתחברות למסד הנתונים: '. $conn->connect_error .'</h4>';
                      } 
                      else { 
-                        $sql = "SELECT id , name, content , length, status, notes FROM activities ";
+
+                        $sql = "SELECT activities.id AS id, name, cost , activities.startdate AS start, finishdate, notes , employee.fullName as ef FROM activities INNER JOIN employee on employeid= employee.id ";
+
                         $result = $conn->query($sql);
                 if ($result->num_rows > 0) {  
                     $linenum =1;
                     while($row = $result->fetch_assoc()) {
                        
                  echo ' <tr>
+
+                <th scope="row">'.$linenum.'</th>
                 <td>'.$row["id"].'</td>
                 <td>'.$row["name"].'</td>
-                <td>'.$row["content"].'</td>
-                <td>'.$row["length"].'</td>
-                <td>'.$row["status"].'</td>
+                <td>'.$row["cost"].'</td>
+                <td>'.$row["start"].'</td>
+                <td>'.$row["finishdate"].'</td>
                 <td>'.$row["notes"].'</td>
-                <td>
-                    <button id="but1" class="btn btn-link" value=""> עדכון</button>
-                </td>
+                <td>'.$row["ef"].'</td>
+
+
             </tr>';
             $linenum++;
         }

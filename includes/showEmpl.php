@@ -44,11 +44,13 @@
     <div class="main_container">
         <h2>הצגת עובדים</h2>
 
+
         <nav class="navbar navbar-light col-sm-10">
                 <form class="form-inline" method="POST" action="showDetailsEmpl.php">
                     <input class="form-control" type="search" name="inputsearch" placeholder="הזן ת.ז עובד" aria-label="Search">
                     <button type="submit" class="btn btn-outline-primary" type="button" herf= "showDetailsEmpl.php" >חפש</button>
         </nav>
+
 
         <table class="table">
             <thead class="thead-light">
@@ -81,7 +83,9 @@
                 <td>'.$row["tel"].'</td>
                 <td>'.$row["mail"].'</td>
                 <td>
+
                     <a href="../includes/updateEmpl.html" id="but1" class="btn btn-link" value="" > עדכון </a>
+
                 </td>
             </tr>';
             $linenum++;
@@ -95,7 +99,9 @@ echo '<h4 class="card-title"> לא נמצאו תוצאות</h4>';
         </tbody>
     </table>
 
+
     <a href="../includes/creatEmpl.html" class="btn btn-primary btn-lg">+</a>
+
 
 </div>
 
