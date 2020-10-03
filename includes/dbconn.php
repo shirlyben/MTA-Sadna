@@ -3,6 +3,7 @@
  $servername = 'localhost';
  $username = 'root';
  $password = '';
+
  $dbname='mysql';
 
  error_reporting(E_ALL ^ E_WARNING);

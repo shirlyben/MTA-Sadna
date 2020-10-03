@@ -46,39 +46,48 @@
 
                     <div class="form-group col">
                         <label for="name">תעודת זהות</label>
-                        <input type="number" class="form-control" name="inputid">
+                        <input type="number" class="form-control" name="inputid" maxlength="9" required>
                     </div>
                     <div class="form-group col">
                         <label for="name">שם מלא</label>
-                        <input type="text" class="form-control" name="inputname">
+                        <input type="text" class="form-control" name="inputname" maxlength="50" required >
+                    </div>
+                    <div class="form-group col">
+                        <label for="name">סטטוס</label>
+                        <select class="form-control" name="inputStatusEmpl" >
+                        <option disabled value=""> ---בחר---</option>
+                        <option value= "manager"> מנהל </option>
+                        <option value= "general"> כללי </option>
+                    </select>
                     </div>
 
                     <div class="form-group col">
                         <label for="name">תאריך לידה</label>
-                        <input type="date" class="form-control" name="inputBirthDate" >
+                        <input type="date" class="form-control" name="inputBirthDate" required>
                     </div>
 
                     <div class="form-group col">
                         <label for="name">תאריך תחילת עבודה</label>
-                        <input type="date" class="form-control" name="inputStartDate">
+                        <input type="date" class="form-control" name="inputStartDate" required>
                     </div>
                     
                     <div class="form-group col">
                         <label for="inputAddress">כתובת</label>
-                        <input type="text" class="form-control" name="inputAddress">
+                        <input type="text" class="form-control" name="inputAddress" maxlength="80" required >
                     </div>
                     
                     <div>
-                        <label for="Name">מין:</label> <br>    
-                        <input type="radio" id="male" name="inputGender" value="אישה">
-                   
+                        <label for="Name">מין:</label> <br>  
                         <label for="male">גבר</label>
-                        <input type="radio" id="female" name="inputGender" value="גבר">
-                    
+                        <input type="radio" id="male" name="inputGender" value="גבר">
+                   
                         <label for="female">אישה</label>
+                        <input type="radio" id="female" name="inputGender" value="אישה">
+                    
+                        <label for="other">אחר</label>
                         <input type="radio" id="other" name="inputGender" value="אחר">
                     
-                         <label for="other">אחר</label>
+                         
                     </div>
 
                 </div>
@@ -87,15 +96,15 @@
 
                     <div class="form-group col">
                         <label for="phone">טלפון</label>
-                        <input type="number" class="form-control" name="inputphone" >
+                        <input type="number" class="form-control" name="inputphone" maxlength="10" required >
                     </div>
                     <div class="form-group col">
                         <label for="phone2">  טלפון נוסף</label>
-                        <input type="number" class="form-control" name="inputphone2" >
+                        <input type="number" class="form-control" name="inputphone2" maxlength="10" required>
                     </div>
                     <div class="form-group form-check col">
                         <label for="exampleInputEmail1">מייל</label>
-                        <input type="email" class="form-control" name="inputEmail" aria-describedby="emailHelp" >
+                        <input type="email" class="form-control" name="inputEmail" aria-describedby="emailHelp" required >
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                 
@@ -106,17 +115,25 @@
 
                     <div class="form-group col">
                         <label for="bankName">שם בנק</label>
-                        <input type="text" class="form-control" name="inputBankName">
+                        <input type="text" class="form-control" name="inputBankName" required>
                     </div>
                     <div class="form-group form-check col">
                         <label for="bankNum">מספר בנק</label>
-                        <input type="number" class="form-control" name="inputBankNum" >
+                        <input type="number" class="form-control" name="inputBankNum" required >
                      
                     </div>
                     <div class="form-group form-check col">
                         <label for="bankAccount">מספר חשבון</label>
-                        <input type="number" class="form-control" name="inputBankAccount" >
+                        <input type="number" class="form-control" name="inputBankAccount" required >
+                </div> <br>
+
+                <div class="form-group form-check col">
+                <label for="bankAccount">קובץ חוזה עבודה</label>
+                <input type="file" class="form-control"  name="filename2">
+    
                 </div>
+               
+
 
                 <div class="container">
                     <div class="centerButton">
@@ -130,3 +147,11 @@
 
 
 </html>
+
+<script>
+    
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>

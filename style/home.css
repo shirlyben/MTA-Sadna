@@ -14,6 +14,7 @@ body{
 .wrapper{
   margin: 10px;
 }
+
 .wrapper .top_navbar{
   width: calc(100% - 20px);
   display: flex;
@@ -30,6 +31,18 @@ body{
   cursor: pointer;
   position: absolute;
   right: 2px;
+}
+.logout{
+  width: 70px;
+  height: 101%;
+  display: flex;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .wrapper .top_navbar .hamburger div{
@@ -78,8 +91,9 @@ body{
 }
 
 .wrapper .top_navbar .top_menu ul li a:hover{
-  background: #4360b5;
-  color: #fff;
+  background:  #1E90FF;
+  transform: scale(1.5);
+ 
 }
 
 .wrapper .top_navbar .top_menu ul li a:hover i{
@@ -87,9 +101,9 @@ body{
 }
 
 .wrapper .sidebar{
-  position: absolute;
-  right:1px;
-  top: 85px;
+  position: fixed;
+  right:2px;
+  top: 80px;
   background: #5EC1EC;
   width: 200px;
   height: calc(100% - 80px);
@@ -125,6 +139,10 @@ body{
 
 .wrapper .sidebar ul li a span.title{
   display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 25px;
+
 }
 
 .wrapper .sidebar ul li a:hover,
@@ -162,9 +180,23 @@ body{
 
 .wrapper.collapse .sidebar ul li a span.title{
   display: none;
+
 }
 
 .wrapper.collapse .main_container{
   width: (100% - 70px);
   
 }
+
+.mainContainer{
+    width: calc(100% - 18%);
+    height: calc(100% - 80px);
+    margin-top: 80px;
+    background: #e1ecf2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
