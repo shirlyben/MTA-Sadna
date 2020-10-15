@@ -13,7 +13,7 @@ echo 'Current TO NUM: '. $to;
 
 //composer require nexmo/client
 
-$basic  = new \Nexmo\Client\Credentials\Basic('3410adf9', 'i40ZiXACqyDwwMve');
+$basic  = new \Nexmo\Client\Credentials\Basic('xx', 'yy');
 $client = new \Nexmo\Client($basic);
 
 /*
