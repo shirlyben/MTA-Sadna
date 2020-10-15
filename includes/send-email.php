@@ -22,7 +22,7 @@ $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
     "text/html", "$txt"
 );
-$sendgrid = new \SendGrid('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');
+$sendgrid = new \SendGrid('ENCRYPT');
 try {
     $response = $sendgrid->send($email);
     print $response->statusCode() . "\n";
